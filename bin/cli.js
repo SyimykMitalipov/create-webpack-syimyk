@@ -1,7 +1,5 @@
-
+#!usr/bin/env node
 const childProcess = require('child_process');
-
-
 const runCommand = command => {
     try {
         childProcess.execSync(`${command}`, { stdio: 'inherit' })
@@ -11,18 +9,13 @@ const runCommand = command => {
     }
     return true;
 }
-
 const repoName = process.argv[2];
-const gitCheckoutCommand = `git clone https://github.com/SyimykMitalipov/create-webpack-syimyk ${repoName}`;
+const gitCheckoutCommand = `git clone --depth 1 https://github.com/SyimykMitalipov/create-webpack-syimyk ${repoName}`;
 const installDepsCommand = `cd ${repoName} && npm install`;
-
 console.log(`Cloning the repo from ${repoName}`);
 const checkout = runCommand(gitCheckoutCommand);
 if (!checkout) process.exit(-1);
-
-
 console.log(`Installing dependencies for ${repoName}`);
-
 const installDeps = runCommand(installDepsCommand);
 if (!installDeps) process.exit(-1);
 

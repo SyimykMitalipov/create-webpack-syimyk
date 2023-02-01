@@ -1,9 +1,11 @@
 {
   "name": "create-webpack-syimyk",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Emaaa",
   "main": "/src/index.js",
-  "bin": "./bin/cli.js",
+  "bin": {
+    "create-webpack-syimyk": "./bin/cli.js"
+  },
   "scripts": {
     "start": "webpack-dev-server --open",
     "dev": "NODE_ENV=development webpack serve --config webpack.config.js",
